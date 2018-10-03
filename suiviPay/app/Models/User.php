@@ -10,6 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,4 +29,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /**
+     * Get the images.
+     */
+    public function images()
+    {
+        return $this->hasMany (Image::class);
+    }
+    public function getAdminAttribute()
+    {
+        return $this->role === 'admin';
+    }
 }
