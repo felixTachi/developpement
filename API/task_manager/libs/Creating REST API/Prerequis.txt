@@ -1,0 +1,5 @@
+1- Avoir Advanced Rest Client installé sous le navigateur Google Chrome
+2- Avoir wampserver installé et le modure " rewrite-module " activé
+3- Importer labasede donnéera partir du fichier dans le dossier "MySQL"
+4- Le code source du projet php se trouvedans le répertoir "PHP project"
+5- Mettre le code source sous le répertoir "www" de wamp server

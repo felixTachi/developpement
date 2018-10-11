@@ -35,7 +35,7 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request, CategoryRepository $repository)
     {
     $repository->store($request->all ());
-    return redirect ()->route ('home')->with ('ok', __ ('La catégorie a bien été enregistrée'));
+    return redirect ()->route ('home')->with ('ok', __ ('Le versement a bien été enregistrée'));
     }
 
     /**
