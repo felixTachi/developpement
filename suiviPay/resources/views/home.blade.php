@@ -7,7 +7,7 @@
             <div class="card-content white-text">
                 <div style="margin-left:150px;margin-top:40px;background-color:#457DBB">
                 <div class="panel-heading">Historique des transactions</div>
-                    <table align="center" border=2 width="100%" cellpadding="10" cellspacing="1" style="color:#FFF" >
+                    <table align="center" border=1 width="100%" bordercolordark="green" cellpadding="10" cellspacing="1" style="color:#FFF" class="table" >
                     <caption align="center" style="color:#FFF">
                     <h4>Liste des transactions</h4>
                     </caption>
