@@ -3,7 +3,8 @@
   <head>
   <meta charset="UTF-8">
     <link href="../bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet">
-    <link href="../vue/style.css" rel="stylesheet">
+		<link href="../vue/style.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Un peu de style pour la visualisation -->
   <title>AFRIKPAY -- VUE DE CONTROLE</title>
   <script src="../SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
@@ -53,11 +54,6 @@ session_start();
 	case '../vue/liste_ElementBuffet.php': include('../vue/liste_ElementBuffet.php'); break;
 	case '../vue/liste_commande.php': include('../vue/liste_commande.php'); break;
 	case '../vue/liste_versement.php': include('../vue/liste_versement.php'); break;
-	case '../vue/liste_buffet.php': include('../vue/liste_buffet.php'); break;
-	case 'newBuffet.php': include('newBuffet.php'); break;
-	case 'elementBuffet.php': $id_buffet=$_GET['IDENTIFIANT_Buffet']; include('elementBuffet.php'); break;
-	case 'updatFormElementBuffet.php':$id_element=$_GET['IDENTIFIANT_ELEMENT'];$id_buffet=$_GET['IDENTIFIANT_BUFFET1']; include('updatFormElementBuffet.php'); break;
-	case 'deletElementBuffet.php': $_idElement = $_GET['IDENTIFIANT_ELEMENT'];$_idBuffet=$_GET['IDENTIFIANT_BUFFET1']; include('deletElementBuffet.php'); break;
 	default : include('../vue/listAllPaiement.php'); break; 	 
 	} 
 	?>

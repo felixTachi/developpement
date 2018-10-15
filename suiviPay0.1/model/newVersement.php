@@ -1,6 +1,6 @@
  
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
  <div class=" col-md-ofset-3 col-xm-9 col-sm-9 col-md-9 col-lg-9">
  <form  class="form-horizontal col-md-ofset-3 col-xm-9 col-sm-9 col-md-9 col-lg-9" action="../controlleur/insertVersement.php" method="post">
   <div class="form-group">
