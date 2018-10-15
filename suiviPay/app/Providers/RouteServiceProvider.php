@@ -54,6 +54,22 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
+
+     Route::middleware ('admin')->group (function () {
+
+        Route::name ('versement.')->prefix('versement')->group(function () {
+            Route::name ('versement.')->prefix('versement')->group(function () {
+                Route::name ('index')->get ('/', 'AdminController@versement');
+                Route::name ('add')->get ('/', 'AdminController@versement');
+                Route::name ('destroy')->delete ('/', 'AdminController@destroy');
+            });
+        });
+
+        Route::name ('maintenance.')->prefix('maintenance')->group(function () {
+            Route::name ('index')->get ('/', 'AdminController@edit');
+            Route::name ('update')->put ('/', 'AdminController@update');
+        });
+    });
     }
 
     /**

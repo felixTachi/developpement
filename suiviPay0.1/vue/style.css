@@ -1,0 +1,140 @@
+body {
+    padding-bottom: 0;
+    padding-top: 10px;
+	background: #FFFAFA;
+	font-family: "Lato",sans-serif;
+	font-weight: 300;
+}
+html, body {
+    height: 100%;
+    margin: 0; 
+	padding: 0;
+}
+body {
+    display : table;
+    width: 100%;
+}
+footer {
+    display : table-row;
+    height: 50px;
+	background:#222;
+	color: #CCC;
+    font-weight: bold;
+    line-height: 86px;
+    text-align: center;
+}
+#sidebar{
+position: absolute;
+bottom: 0;
+top: 47px;
+right: 0;
+margin-bottom: 50px;
+}
+#logo{
+	 color:#CCC;
+	}
+form {
+    margin: 45px 127px !important;
+}	
+#text_log{
+	 color:#CCC;
+	 line-height: 12px !important;
+	}
+thead,th,td {
+	text-align: left;
+	
+	}	
+#navigation{
+	margin-left:20%;
+	}
+label {
+    line-height: 16px !important;
+}
+.main {
+	background-size: contain;
+	padding: 80px 20px 20px;
+	margin-top: 120px;
+}
+table {
+	margin: 2px 2px;
+	text-align: center;
+} 
+.col-md-ofset-3.col-xm-8.col-sm-8.col-md-8.col-lg-8 {
+    margin: 16px 38px;
+}
+caption {
+	text-align:center;
+	}
+legend {
+ font-family: "Lato",sans-serif;
+}
+@media only screen and (max-width : 992px) {
+	.main {
+		background: white;
+		margin-top: 30px;
+	}
+ul, li {
+	list-style:none;
+	list-style-type:none;
+	}
+
+
+h1 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	color: #FFFFFF;
+	margin-top: 2px;
+}
+
+h2 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	color: #FFFFFF;
+	font-size: 18px;
+	margin-top: 2px;
+}
+h3 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	color: #FFFFFF;
+	font-size: 18px;
+	margin-top: 2px;
+}
+}
+
+input.form-control , input[type="submit"] , .btn {
+	border-radius: 0px;
+}
+
+.btn {
+	transition: all ease-in-out 0.2s;
+}
+
+.credits {
+	margin-top: 100px;
+	color: #999;
+	font-size: 12px;
+}
+.credits a {
+	color: inherit;
+}
+[class*="col-"] {
+  border: 0px solid black;
+  line-height: 40px;
+  text-align: center;
+}
+#header {
+    background: gray none repeat scroll 0 0;
+    height: 142px;
+}
+
+.menuLateral li a:hover{
+   color:white;
+	}
+.menuLateral li a{
+	color:#003366;
+	text-decoration:none;
+	}	
+.col-lg-2 > ul {
+    text-align: left;
+}

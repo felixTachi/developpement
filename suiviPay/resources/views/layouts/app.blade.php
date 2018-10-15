@@ -11,32 +11,33 @@
 </head>
 <body>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{ route('home') }}">{{ config('app.name', 'Album') }}</a>
+    <a class="navbar-brand" href="{{ route('home') }}">{{ config('app.name', 'suiviPay') }}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            @admin
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle{{ currentRoute(route('category.create'))}}" href="#" id="navbarDropdownGestCat" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    @lang('Administration')
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownGestCat">
-                    <a class="dropdown-item" href="{{ route('category.create') }}">
-                        <i class="fas fa-plus fa-lg"></i> @lang('Ajouter une catégorie')
-                    </a>
-                </div>
-            </li>
-            @endadmin
-        </ul>
+    @admin
+<li class="nav-item dropdown">
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownGestCat">
+        <a class="dropdown-item" href="{{ route('user.create') }}">
+            <i class="fas fa-plus fa-lg"></i> @lang('Ajouter un utilisateur')
+        </a>
+        <a class="dropdown-item" href="{{ route('user.index') }}">
+            <i class="fas fa-wrench fa-lg"></i> @lang('Gérer les utilisateurs')
+        </a>
+        <a class="dropdown-item" href="{{ route('maintenance.index') }}">
+            <i class="fas fa-cogs fa-lg"></i> @lang('Mode maintenance')
+        </a>
+    </div>
+</li>
+@endadmin
         <ul class="navbar-nav ml-auto">
             @guest
             <li class="nav-item{{ currentRoute(route('login')) }}"><a class="nav-link" href="{{ route('login') }}">@lang('Connexion')</a></li>
             <li class="nav-item{{ currentRoute(route('register')) }}"><a class="nav-link" href="{{ route('register') }}">@lang('Inscription')</a></li>
             @else
                 <li class="nav-item">
+                    <li class="nav-item{{ currentRoute(route('register')) }}"><a class="nav-link" href="{{ route('register') }}">@lang('Inscription')</a></li>
                     <a id="logout" class="nav-link" href="{{ route('logout') }}">@lang('Déconnexion')</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">
                         {{ csrf_field() }}
