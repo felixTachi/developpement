@@ -3,7 +3,7 @@
 include_once('../model/config.php');
 ?>
 <div class="row">
- <div class=" col-md-ofset-3 col-xm-8 col-sm- col-md-8 col-lg-8 ">
+ <div style="overflow-y:scroll;" class=" col-md-ofset-3 col-xm-8 col-sm- col-md-8 col-lg-8 ">
 <?php
 
 			 $query="SELECT
@@ -23,7 +23,9 @@ FROM
   INNER JOIN `compte` ON `personnel`.`ID_PERSONNEL` = `compte`.`ID_PERSONNEL`;";
 			   $query1="select NOM_DU_PERSONNEL from personnel where ID_PERSONNEL in (select ID_PERSONNEL from compte) ";
 		     $res =$con->query($query) or die (mysql_error());
-		     $res1 =$con->query($query1) or die (mysql_error());
+         $res1 =$con->query($query1) or die (mysql_error());
+         $data =mysqli_fetch_all($res,MYSQLI_ASSOC);
+         $data1 =mysqli_fetch_all($res1,MYSQLI_ASSOC);
 			
 ?>
 <table align="center" class="table table-bordered table-striped table-condensed">
@@ -39,11 +41,11 @@ FROM
     </tr>
   </thead>
     <tbody>
-     <?php    while($result = $res->fetch(PDO::FETCH_ASSOC)){?>
+     <?php foreach($data as $result){?>
       <tr class="success">
         <td><?php echo $result['NOM_UTILISATEUR'];?></td>
         <td><?php echo $result['MOT_DE_PASSE'];?></td>
-        <td><?php echo $result['CATEGORIE_COMPTE'];?></td>
+        <td><?php if($result['CATEGORIE_COMPTE']==1) echo "Super Utilisateur"; else echo "Utilisateur";?></td>
         <td><?php echo $result['NOM_DU_PERSONNEL'];?></td>
         <td><a href="admin.php?id_user=<?php echo $result['IDENTIFIANT_COMPTE'];?>&amp;page=updatFormUser.php" style="color:#495CFF">Editer</a></td>
         <td><a href="admin.php?id_user=<?php echo $result['IDENTIFIANT_COMPTE'];?>&amp;page=deletUser.php"  style="background-color:#dff0d8; color:#495CFF; border:none">supprimer</a></td>

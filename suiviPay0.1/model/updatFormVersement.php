@@ -1,27 +1,10 @@
  <?php
  include('config.php');
  
-$requeteVers=" SELECT
-  `commandetable`.`IDENTIFIANT_COMMANDE`,
-  `commandetable`.`NUMERO_FACTURE`,
-  `commandetable`.`ID_PERSONNEL`,
-  `commandetable`.`NOM_CLIENT`,
-  `commandetable`.`DATE_COMMANDE`,
-  `commandetable`.`IDENTIFIANT_TABLE_CLIENT`,
-  `commandetable`.`NUMERO_TABLE`,
-  `commandetable`.`ESPACE__DE_VENTE`,
-  `versement`.`IDENTIFIANT_VERS`,
-  `versement`.`SOMME_VERS`,
-  `versement`.`IDENTIFIANT_COMMANDE` AS `IDENTIFIANT_COMMANDE1`,
-  `versement`.`DATE_VERS`
-FROM
-  `commandetable`
-  INNER JOIN `versement` ON `commandetable`.`IDENTIFIANT_COMMANDE` =
-    `versement`.`IDENTIFIANT_COMMANDE` WHERE  `versement`.`IDENTIFIANT_VERS` = $IDENTIFIANT_VERS;";
- $resultatVers = $con->query($requeteVers);
-$requete="select * FROM commande ";
-$resultat = $con->query($requete);
-
+$requeteVers=" SELECT * FROM `versement` WHERE  `versement`.`IDENTIFIANT_VERS` = $IDENTIFIANT_VERS;";
+$resultatVers = $con->query($requeteVers);
+$data =$resultatVers->fetch_assoc();
+ 
 
  ?>
   <div class=" col-md-ofset-3 col-xm-9 col-sm-9 col-md-9 col-lg-9">
@@ -35,28 +18,6 @@ $resultat = $con->query($requete);
 
   </div>
 
-  <div class="row">
-
-    <div class="form-group">
-
-      <label for="text" class="col-sm-3 col-md-3 col-lg-2 control-label">indice commande : </label>
-
-      <div class="col-sm-4 col-md-6 col-lg-9">
-
-        <select name="id_comande" class="form-control" required>
-         <?php
-		
-		while ($resultVersem = $resultatVers->fetch(PDO::FETCH_ASSOC)){
-		?>
-        <option value="<?php echo $resultVersem['IDENTIFIANT_COMMANDE']; ?>">
-        <?php echo $resultVersem['DATE_COMMANDE'].'  N°Bon:'.$resultVersem['NUMERO_FACTURE'].'   '.$resultVersem['NUMERO_TABLE'].'  '.$resultVersem['ESPACE__DE_VENTE']; ?></option>
-        </select>
-
-      </div>
-
-    </div>
-
-  </div>
 
   <div class="row">
 
@@ -71,7 +32,7 @@ $resultat = $con->query($requete);
 
      <div class="col-sm-4 col-md-6 col-lg-9">
 
-        <input type="textarea" class="form-control" name="somme_vers" value="<?php echo $resultVersem['SOMME_VERS']; ?>" required>
+        <input type="textarea" class="form-control" name="somme_vers" value="<?php echo $data['SOMME_VERS']; ?>" required>
 
       </div>
 
@@ -87,10 +48,22 @@ $resultat = $con->query($requete);
 
     <div class="col-sm-4 col-md-6 col-lg-9">
 
-        <input type="date" class="form-control" value="<?php echo $resultVersem['DATE_VERS']; ?>" name="date_vers" >
+        <input type="text" class="form-control" id="date_vers" name="datetime" placeholder="<?php echo $data['DATE_VERS']; ?>" required>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+		    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+		    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.js" type="text/javascript"></script>
 
+ <script>   
+      $(document).ready(function () {   
+       $(function() {  
+      $("#date_vers").datetimepicker({   
+       dateFormat: 'dd-mm-yy',   
+       timeFormat: 'hh:mm:ss',  
+      }).datetimepicker("setDate", new Date());  
+      });  
+          });   
+    </script>
       </div>
-<?php } ?>
     </div>
 
   </div>

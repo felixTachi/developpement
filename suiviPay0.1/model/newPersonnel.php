@@ -32,7 +32,9 @@ include('../model/config.php');
     </tr>
   </thead>
     <tbody>
-     <?php    while($result = $res->fetch(PDO::FETCH_ASSOC)){?>
+     <?php    
+      $data =mysqli_fetch_all($res,MYSQLI_ASSOC);
+     foreach($data as $result){ ?>  
       <tr class="success">
         <td><?php echo $result['NOM_DU_PERSONNEL'];?></td>
         <td><?php echo $result['PRENOM_PERSONNEL'];?></td>

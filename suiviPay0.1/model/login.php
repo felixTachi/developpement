@@ -17,8 +17,7 @@ if (isset($_POST['username']) AND isset($_POST['password'])) //si l'utilisateur 
     $mot_de_passe = htmlspecialchars($_POST['password']);//on crypte le mot de passe
              
     $requete_ident = $con->query("SELECT * FROM compte WHERE NOM_UTILISATEUR='".$nom_utilisateur."'") or die (mysql_error());
-     
-    $identification = $requete_ident->fetch();
+    $identification = $requete_ident->fetch_assoc();
      
     if ($identification['NOM_UTILISATEUR']==$nom_utilisateur AND $identification['MOT_DE_PASSE']==$mot_de_passe)  //et on le compare au nom d'utilisateur et mot de passe stocké dans la bdd
     {

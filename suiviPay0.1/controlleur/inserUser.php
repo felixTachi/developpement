@@ -12,12 +12,13 @@ include('../model/config.php');
 		       $user_name = htmlspecialchars($_POST['user_name']);
 			   $mot_de_passe = htmlspecialchars($_POST['mot_de_passe']);
 			   
-     		   $requete = "insert into compte VALUES('','$ID_Personnel','$user_name','$mot_de_passe','$categorie');";
-			   $resultat = $con->query($requete);
+     		   $requete = "INSERT INTO compte(ID_PERSONNEL,NOM_UTILISATEUR,MOT_DE_PASSE,CATEGORIE_COMPTE) VALUES($ID_Personnel,'$user_name','$mot_de_passe','$categorie');";
+			   $resultat = $con->query($requete) or die (mysql_error());
 			  
 			   $query="select * from compte where MOT_DE_PASSE='$mot_de_passe';";
-		       $res =$con->query($query) or die (mysql_error());
-			   if($res->rowCount()>0){ 
+			   $res =$con->query($query) or die (mysql_error());
+			   $rowCount = $res->num_rows;
+			   if( $rowCount>0){ 
 			   echo '<script language =javascript> alert(\'op\351ration r\351ussie\') </script>';
 			    echo '<script language =javascript> location.href = \'../model/admin.php?page=newUser.php\' </script>';
 			

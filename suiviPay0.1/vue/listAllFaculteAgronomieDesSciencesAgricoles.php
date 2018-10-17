@@ -1,9 +1,8 @@
-<div style="overflow-y:scroll;" class="col-md-ofset-3 col-xm-9 col-sm-9 col-md-9 col-lg-9">
-            <div class="card-content white-text">
-                <div style="margin-left:0px;margin-top:0px;background-color:#FFF;width:950px;position:fixed(right);overflow:scroll;height:550px;">
+
+                
+                <div class="panel-heading" style="color:#FFF;background-color:#003366;;width:950px" align="center"><H3>FACULTE D'AGRONOMIE ET DES SCIENCES AGRICOLES</H3></div>
                     <table id="table1" cellspacing="0"  style="height:550px;width:950px " align="center"  class="table table-bordered table-striped table-condensed">
                         <tr style="background-color:#003366; color:#FFF">
-                        <td>Etalissement / Ecole</td>
                         <td>Numéro de paiement</td>
                         <td>Nom et Prenoms de l'Etudiant</td>
                         <td>Montant Quitus</td>
@@ -19,16 +18,16 @@
                       
                         foreach($data as $v){ 
                             $i++;
-                           ?>
+                            if($v['etablissement']="Faculté d'Agronomie et
+                            des Sciences Agricoles") {?>
                     <tr style="background-color:<?php $couleurs[$i%$nb];?>">
-                            <td><?php echo $v['etablissement'];?></td>
                             <td><?php echo $v['numquitus'];?></td>
                             <td><?php echo $v['nometudiant'];?></td>
                             <td><?php echo $v['montant'];?></td>
                             <td><?php echo $v['datepaie'];?></td>
                            <td><?php echo $v['telephone'];?></td>
                         </tr>
-                        <?php 
+                        <?php }
                      } ?>
                     </table>
                     <script type="text/javascript" language="javascript" src="../TableFilter/src/tablefilter.js"></script>  
@@ -37,6 +36,5 @@
                             var tf01 = new TF('table1');  
                             tf01.AddGrid();  
                     </script>   
-                </div>
-            </div>
-</div>
+                
+            

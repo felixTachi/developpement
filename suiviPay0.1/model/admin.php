@@ -27,20 +27,13 @@ session_start();
 	 include('menudroitAdmin.php');
 	 switch (@$_GET['page'])
 	 {
-		 
-	case 'newproduit.php': include('newproduit.php'); break;
 	case 'newPersonnel.php': include('newPersonnel.php'); break;
 	case '../vue/liste_personnel.php': include('../vue/liste_personnel.php'); break;
-	
 	case 'Ajout_Personnel.php': include('Ajout_Personnel.php'); break;
 	case 'newUser.php': include('newUser.php'); break;
 	case '../vue/liste_Utilisateur.php': include('../vue/liste_Utilisateur.php'); break;
-	case '../vue/liste_produit.php': include('../vue/liste_produit.php'); break;
 	case 'adminGlobale.php': include('adminGlobale.php'); break;
-	case 'newDepartement.php': include('newDepartement.php'); break;
-	case '../vue/liste_departement.php': include('../vue/liste_departement.php'); break;
-	case 'departementGlobal.php': include('departementGlobal.php'); break;
-	case 'produitGlobal.php': include('produitGlobal.php');break;
+
 	//case 'liste_Utilisateur.php': include('liste_Utilisateur.php'); break;
 	
 	
@@ -48,10 +41,7 @@ session_start();
 	case 'deletUser.php': $id_user=$_GET['id_user']; include('deletUser.php'); break;
 	case 'deletPersonnel.php': $id_personnel=$_GET['id_personnel']; include('deletPersonnel.php'); break;
 	case 'updatFormPersonnel.php': $id_personnel=$_GET['id_personnel'];include('updatFormPersonnel.php'); break;	
-	case 'updatFormService.php': $id_service=$_GET['id_service']; include('updatFormService.php'); break;
-	case 'deletService.php': $id_service=$_GET['id_service']; include('deletService.php'); break;
-	case 'updatFormProduit.php': $id_produit=$_GET['id_produit']; include('updatFormProduit.php'); break;
-	default : include('newPersonnel.php'); break;
+	default : include('../vue/liste_Utilisateur.php'); break;
 		 
 	} 
 

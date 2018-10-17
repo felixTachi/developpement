@@ -7,7 +7,8 @@ include_once('../model/config.php');
 <?php
 
 			 $query="select * from personnel ";
-		     $res =$con->query($query) or die (mysql_error());
+         $res =$con->query($query) or die (mysql_error());
+         $data =mysqli_fetch_all($res,MYSQLI_ASSOC);
 			
 ?>
 
@@ -25,8 +26,8 @@ include_once('../model/config.php');
       <th>Date d'accès au poste</th>
     </tr>
   </thead>
-    <tbody>
-     <?php    while($result = $res->fetch(PDO::FETCH_ASSOC)){?>
+    <tbody> 
+     <?php   foreach($data as $result){?>
       <tr class="success">
         <td><?php echo $result['NOM_DU_PERSONNEL'];?></td>
         <td><?php echo $result['PRENOM_PERSONNEL'];?></td>

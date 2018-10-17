@@ -25,8 +25,8 @@
         
         <style>
 		  .main {
-    background: rgba(0, 0, 0, 0) url("images/connection.JPEG") no-repeat scroll right top / contain ;
-    margin-top: 120px;
+    background: rgba(0, 0, 0, 0) url("") no-repeat scroll right top / contain ;
+    margin-top: 90px;
     padding: 80px 20px 20px;
 }
 body {
@@ -46,7 +46,7 @@ h1 {
 	color: #555;
 	margin-bottom: 0;
 }
-h2 {
+h3,h2 {
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
 	color: #999;
@@ -89,8 +89,9 @@ form {
 		<div class="row">
 		<div class="col-xs-12 col-sm-6 col-sm-offset-1">
 					
-			<h1>Afrikpay</h1>
-			<h2>interface de controle</h2>
+			<h1>KTS-Afrikpay</h1>
+			<h2>Paiement des droits Universitaires</h2>
+			<h3>Plateforme de suivi</h3>
 					
 			<form action="model/login.php" name="login" role="form" class="form-horizontal" method="post" accept-charset="utf-8" style="margin:47px 13px;">
 

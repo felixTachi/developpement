@@ -2,13 +2,34 @@
 <html>
   <head>
   <meta charset="UTF-8">
+	<style>
+		#menu{
+			text-align: center;
+			font-size: 16px;
+			color:#CCC;
+		}
+		.fixedTop{
+			position: fixed;
+			top:0;
+			width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
     <link href="../bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet">
 		<link href="../vue/style.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/smoothness/jquery-ui.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.css" rel="stylesheet">
+		<link href="../bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Un peu de style pour la visualisation -->
   <title>AFRIKPAY -- VUE DE CONTROLE</title>
   <script src="../SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
   <link href="../SpryAssets/SpryMenuBarVertical.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="../bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" />  
 </head>
   <body style="margin-top:0px;">
     <div class="container-fluid">
@@ -24,36 +45,11 @@ session_start();
 	 
 	 switch (@$_GET[page])
 	 {
-	case '../vue/liste_Met.php': include('../vue/liste_Met.php'); break;	 
-	
-	case '../vue/BillanBuffet.php': include('../vue/BillanBuffet.php'); break;	 
-	
-	case 'newElemetCouvert.php': include('newElemetCouvert.php'); break;	 
-	case '../vue/recapJournaliere.php':include('../vue/recapJournaliere.php'); break;
-	case '../vue/recatitulatifGlobal.php':include('../vue/recatitulatifGlobal.php'); break; 
 	case 'deletVersementForm.php': $IDENTIFIANT_VERS=$_GET['IDENTIFIANT_VERS'];	include('deletVersementForm.php'); break; 
 	case 'updatFormVersement.php': $IDENTIFIANT_VERS=$_GET['IDENTIFIANT_VERS']; include('updatFormVersement.php'); break;	 
-	case 'newCouvert.php': $id_command=$_GET['IDENTIFIANT_COMMANDE']; include('newCouvert.php'); break;
 	case 'newVersement.php': include('newVersement.php'); break;
-	case 'newCommand.php': include('newCommand.php'); break;
-	case 'commandeGlobal.php': include('commandeGlobal.php'); break;
 	case 'versementGlobal.php': include('versementGlobal.php'); break;
-	
-	case 'deletMet.php': $IDENTIFIANT_MET =$_GET['IDENTIFIANT_MET']; include('deletMet.php'); break;
-	
-	case 'deletBuffet.php': $id_buffet =$_GET['IDENTIFIANT_BUFFET']; include('deletBuffet.php'); break;
-	case 'deletCommandForm.php': $id_command =$_GET['IDENTIFIANT_COMMANDE']; include('deletCommandForm.php'); break;
-	case 'deletCouvertForm.php': $id_couvert =$_GET['IDENTIFIANT_COUVERT'];$id_command =$_GET['IDENTIFIANT_COMMANDE']; include('deletCouvertForm.php'); break;
-	case 'updatFormBuffet.php': $id_buffet =$_GET['IDENTIFIANT_BUFFET']; include('updatFormBuffet.php'); break;
-	case 'updatFormCommande.php': $id_command=$_GET['IDENTIFIANT_COMMANDE']; include('updatFormCommande.php'); break;
-	case 'updatFormMet.php': $IDENTIFIANT_MET=$_GET['IDENTIFIANT_MET']; include('updatFormMet.php'); break;
-	case 'updatFormCouvert.php': $id_command =$_GET['IDENTIFIANT_COMMANDE']; $id_couvert =$_GET['IDENTIFIANT_COUVERT'];include('updatFormCouvert.php'); break;
-	case 'BuffetGlobal.php': include('BuffetGlobal.php'); break;
-	case 'detailBuffet.php': $id_buffet=$_GET['IDENTIFIANT_BUFFET']; include('detailBuffet.php'); break;
-	case 'detailCommande.php': $id_command=$_GET['IDENTIFIANT_COMMANDE']; include('detailCommande.php'); break;
-	case '../vue/liste_ElementBuffet.php': include('../vue/liste_ElementBuffet.php'); break;
-	case '../vue/liste_commande.php': include('../vue/liste_commande.php'); break;
-	case '../vue/liste_versement.php': include('../vue/liste_versement.php'); break;
+	case 'listAllPaiementByOffice.php': include('../vue/listAllPaiementByOffice.php'); break;
 	default : include('../vue/listAllPaiement.php'); break; 	 
 	} 
 	?>
@@ -64,6 +60,7 @@ session_start();
      include('piedPage.php');	 
 	 ?>
     </div>
+
   <script type="text/javascript">
 var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgRight:"../SpryAssets/SpryMenuBarRightHover.gif"});
     </script>

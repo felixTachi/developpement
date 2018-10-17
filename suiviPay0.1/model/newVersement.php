@@ -14,12 +14,23 @@
     <div class="form-group">
 
       <label for="text" class="col-sm-3 col-md-3 col-lg-2 control-label">Date de Paiement : </label>
-      <script>
-      $('#date-fr').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', lang : 'fr', weekStart : 1, cancelText : 'ANNULER' });
-      </script>
       <div class="col-sm-4 col-md-6 col-lg-9">
+      <input type ="text" class="form-control" id="datetimepicker" name="datetime" required>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+		  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+		  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.js" type="text/javascript"></script>
 
-      </div>
+ <script>   
+      $(document).ready(function () {   
+       $(function() {  
+      $("#datetimepicker").datetimepicker({   
+       dateFormat: 'dd-mm-yy',   
+       timeFormat: 'hh:mm:ss',  
+      }).datetimepicker("setDate", new Date());  
+      });  
+          });   
+    </script>
+  </div>
 
     </div>
 
@@ -62,10 +73,10 @@
 
   </div>
    
-   <div class="input-group-btn">
+   <div class="input-group-btn" style="margin-right:5px">
 
-    <button type="reset" class="btn btn-primary">Annuler</button>
-	<button type="submit" class="btn btn-primary">Enregistrer</button>
+  <button type="reset"  class="btn btn-primary">Annuler</button>
+	<button type="submit"  class="btn btn-primary">Enregistrer</button>
 
    </div>   
   

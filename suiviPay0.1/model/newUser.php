@@ -3,6 +3,7 @@
  
 $requete="select * FROM personnel";
 $resultat = $con->query($requete);
+$data =mysqli_fetch_all($resultat,MYSQLI_ASSOC);
 
  ?>
 
@@ -25,7 +26,7 @@ $resultat = $con->query($requete);
 
        <select name="ID_Personnel" class="form-control input-sm">
        </option>
-        <?php while ($result = $resultat->fetch(PDO::FETCH_ASSOC)){ ?>
+        <?php foreach($data as $result){?>
         <option value="<?php echo $result['ID_PERSONNEL']; ?>"><?php echo $result['NOM_DU_PERSONNEL'];?></option><?php }?>
        </select>
 
@@ -46,10 +47,8 @@ $resultat = $con->query($requete);
         
 		<select name="categorie" class="form-control input-sm">
 						
-<option value="1">Administrateur Sytème</option>	
-<option value="2">Econome</option>
-<option value="3">Caissière</option>
-<option value="4">Administration Global</option>
+<option value="1">Super Utilisateur</option>	
+<option value="3">Utilisateur</option>
 </select>
       </div>
 
